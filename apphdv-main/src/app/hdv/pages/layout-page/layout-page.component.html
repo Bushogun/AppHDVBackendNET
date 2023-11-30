@@ -1,0 +1,86 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+    <mat-toolbar>
+      <span>Opciones</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item
+      *ngFor="let item of sidebarItems"
+      [routerLink]="item.url"
+      (click)="sidenav.toggle()"
+      >
+        <mat-icon matListItemIcon> {{ item.icon }} </mat-icon>
+        {{ item.label }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+  </mat-toolbar>
+
+  <div style="display: flex; ">
+    <div style="flex: 1;">
+      <!-- Contenido de la columna izquierda -->
+      <div class="container-layout">
+        <div class="profile-picture" style="visibility: visible; opacity: 1;">
+          <img src="../../../../assets/FotoJonathan.jpg" alt="Jonathan Soto" title="Jonathan Soto" width="250" height="250">
+        </div>
+      <div class="container profile-container">
+        <span class="title"><strong>Jonathan Soto</strong></span>
+        <br>
+        <span class="subtitle-1">Ing. Multimedia</span>
+        <span class="subtitle-1">Desarrollador web</span>
+        <div class="social-media">
+
+          <a href="https://www.instagram.com/whoissoto" target="_blank" title="ir a Instagram" class="bounce"><fa-icon class="icon-animate"[icon]="faInstagram" bounce size="2xl" style="color: #fff;"></fa-icon></a>
+          <a href="https://www.linkedin.com/in/bushogun/" target="_blank" title="ir a LinkedIn" class="bounce"><fa-icon [icon]="faLinkedinIn" fa-bounce size="2xl" style="color: #fff;"></fa-icon></a>
+          <a href="https://github.com/Bushogun" target="_blank" title="ir a Github" class="bounce"><fa-icon [icon]="faGithub" bounce size="2xl" style="color: #fff;"></fa-icon></a>
+          <a href="https://www.behance.net/Bushogun" target="_blank" title="ir a Behance" class="bounce"><fa-icon [icon]="faBehance" bounce size="2xl" style="color: #fff;"></fa-icon></a>
+        </div>
+        <button class="button-nobg" title="Descargar CV">Descargar CV</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- <div style="border-left: 10px solid #ab1313; height: 100px;"></div> -->
+
+    <!-- border-color: #000;
+    border-style: solid;
+  margin: -40px; z-index: 1; background-color: #fff; border-radius: 98px; -->
+
+    <div style="flex: 2; padding: 25px;">
+       <!-- Contenido de la columna derecha -->
+
+          <!-- <div class="col-12 mt-5 md:col-6 md:col-offset-3 md:mt-8"> -->
+          <!-- <div style="display: flex; margin: auto; align-items: center; min-height: 89vh;"> -->
+            <router-outlet></router-outlet>
+
+          <!-- </div> -->
+        <!-- </div> -->
+
+
+    </div>
+  </div>
+
+</mat-sidenav-container>
+
+
+<!--
+<div class="grid p-3">
+  <div class="col-12 mt-5 md:col-6 md:col-offset-3 md:mt-8">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+

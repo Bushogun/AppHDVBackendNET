@@ -1,0 +1,111 @@
+{
+"name" : "Jonathan Soto",
+"occupation" : "Desarrollador Web",
+"profession" : "Ingeniero Multimedia",
+"social-media" : [{
+	"instagram":"https://www.instagram.com/whoissoto",
+	"linkedin":"https://www.linkedin.com/in/bushogun",
+	"github":"https://github.com/Bushogun",
+	"behance":"https://www.behance.net/Bushogun"
+}],
+"profile" : "Soy un profesional en ingeniería multimedia con enfoque en desarrollo de software especializado en el desarrollo Frontend. Cuento con una amplia experiencia en proyectos empresariales, donde he trabajado con framework comos Angular, Jquery, y .Net.",
+"skills" : [{
+	"web" : "HTML5 CSS JavaScript Angular React NodeJS SQLServer NextJS SASS",
+	"diseno" : "Illustrator Photohsop Adobe XD",
+	"3D" : "Blender"
+}],
+"basic-education" : [{
+	"institute" : "Liceo Carlos Castro Saavedra",
+	"title" : "Bachiller Académico"
+}],
+"higher-education" : [{
+	"institute" : "Universidad San Buenaventura",
+	"title" : "Ingeniero Multimedia"
+}],
+"experience": [{
+	"company" : "Su Red", 
+	"job-description" : "Desarrollo App SAAS de la empresa para el cliente cuyo core se encuentro en Angular y Node JS disponible para descarga en Android e IOS con ReactNative",
+},{
+"company" : "Desarrollador de Software", 
+	"job-description" : "Desarrollé y actualicé la aplicación web principal de la compañía mejorando la experiencia de usuario y llevé a cabo la implementación de servicios para mejorar su funcionamiento. Resolví incidencias y mejoré la interfaz gráfica del gestor interno de la compañía. Realice los procesos de despliegue de los cambios a los servidores productivos apoyándome de prácticas de DevOps. Realicé de todas las funcionalidades y mejoras realizadas."
+},{
+"company" : "Desarrollador de Software", 
+	"job-description" : "Me desempeñaba atendiendo solicitudes de las diferentes empresas que conforman la cooperativa. Evalúo, diseño e implemento de soluciones tecnológicas usando python, HTML y Javascript, trabajamos bajo la metodología SCRUM. Consultoría, análisis y capacitación de los desarrollos en producción. Dirección de proyectos, en el cual por medio de reuniones directas con los clientes se lleva a cabo el seguimiento de los requerimientos"
+},{
+"company" : "Ingeniero de desarrollo ", 
+	"job-description" : "En GB Media me desempeñé como ingeniero de desarrollo dependiendo de las solicitudes realizadas por el jefe y la coordinación de mi jefe inmediato. Desarrollé páginas web utilizando HTML5, CSS y Javascript con React. Optimicé procesos del área de soporte desarrollando procesos automatizados en python liberando carga de trabajo a los funcionarios del área. Diseñador UI/UX para diferentes proyectos que se llevaron a cabo en el equipo de desarrollo. implementé módulos en el ERP de la empresa. Modelador 3D"
+},{
+"company" : "Ingeniero de desarrollo ", 
+	"job-description" : "Administré las bases de datos de la compañía. Apoyé en la gestión y coordinación de un equipo de call center para posteriormente realizar la inserción en la base de datos."
+}
+]
+}
+
+//As SQL
+CREATE TABLE PersonalInfo (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    [Name] NVARCHAR(255),
+    Occupation NVARCHAR(255),
+    Profession NVARCHAR(255),
+    Profile NVARCHAR(MAX),
+    BasicEducationInstitute NVARCHAR(255),
+    BasicEducationTitle NVARCHAR(255),
+    HigherEducationInstitute NVARCHAR(255),
+    HigherEducationTitle NVARCHAR(255)
+);
+
+CREATE TABLE WorkExperience (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Company NVARCHAR(255),
+    JobDescription NVARCHAR(MAX)
+);
+
+CREATE TABLE SocialMedia (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Instagram NVARCHAR(255),
+    LinkedIn NVARCHAR(255),
+    GitHub NVARCHAR(255),
+    Behance NVARCHAR(255),
+    PersonalInfoID INT,
+    FOREIGN KEY (PersonalInfoID) REFERENCES PersonalInfo(ID)
+);
+
+
+
+INSERT INTO PersonalInfo ([Name], Occupation, Profession, Profile, BasicEducationInstitute, BasicEducationTitle, HigherEducationInstitute, HigherEducationTitle)
+VALUES (
+    'Jonathan Soto',
+    'Desarrollador Web',
+    'Ingeniero Multimedia',
+    'Soy un profesional en ingeniería multimedia con enfoque en desarrollo de software especializado en el desarrollo Frontend. Cuento con una amplia experiencia en proyectos empresariales, donde he trabajado con frameworks como Angular, jQuery y .NET.',
+    'Liceo Carlos Castro Saavedra',
+    'Bachiller Académico',
+    'Universidad San Buenaventura',
+    'Ingeniero Multimedia'
+);
+
+INSERT INTO WorkExperience (Company, JobDescription)
+VALUES 
+    ('Su Red', 'Desarrollo App SAAS de la empresa para el cliente cuyo core se encuentro en Angular y Node JS disponible para descarga en Android e IOS con ReactNative'),
+    ('Desarrollador de Software', 'Desarrollé y actualicé la aplicación web principal de la compañía mejorando la experiencia de usuario y llevé a cabo la implementación de servicios para mejorar su funcionamiento. Resolví incidencias y mejoré la interfaz gráfica del gestor interno de la compañía. Realice los procesos de despliegue de los cambios a los servidores productivos apoyándome de prácticas de DevOps. Realicé de todas las funcionalidades y mejoras realizadas.'),
+    ('Desarrollador de Software', 'Me desempeñaba atendiendo solicitudes de las diferentes empresas que conforman la cooperativa. Evalúo, diseño e implemento de soluciones tecnológicas usando python, HTML y Javascript, trabajamos bajo la metodología SCRUM. Consultoría, análisis y capacitación de los desarrollos en producción. Dirección de proyectos, en el cual por medio de reuniones directas con los clientes se lleva a cabo el seguimiento de los requerimientos'),
+    ('Ingeniero de desarrollo', 'En GB Media me desempeñé como ingeniero de desarrollo dependiendo de las solicitudes realizadas por el jefe y la coordinación de mi jefe inmediato. Desarrollé páginas web utilizando HTML5, CSS y Javascript con React. Optimicé procesos del área de soporte desarrollando procesos automatizados en python liberando carga de trabajo a los funcionarios del área. Diseñador UI/UX para diferentes proyectos que se llevaron a cabo en el equipo de desarrollo. implementé módulos en el ERP de la empresa. Modelador 3D'),
+    ('Ingeniero de desarrollo', 'Administré las bases de datos de la compañía. Apoyé en la gestión y coordinación de un equipo de call center para posteriormente realizar la inserción en la base de datos.');
+
+
+INSERT INTO SocialMedia (Instagram, LinkedIn, GitHub, Behance, PersonalInfoID)
+VALUES (
+    'https://www.instagram.com/whoissoto',
+    'https://www.linkedin.com/in/bushogun',
+    'https://github.com/Bushogun',
+    'https://www.behance.net/Bushogun',
+    1 
+	);
+
+INSERT INTO Skills (WebSkills, DesignSkills, ThreeDSkills, PersonalInfoID)
+VALUES (
+    'HTML5 CSS JavaScript Angular React NodeJS SQLServer NextJS SASS',
+    'Illustrator Photoshop Adobe XD',
+    'Blender',
+    1 
+);
